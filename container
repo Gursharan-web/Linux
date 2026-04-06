@@ -1,0 +1,8 @@
+FROM registry.access.redhat.com/ubi9:latest
+RUN yum install httpd zip unzip -y 
+ADD https://templated.live/hielo/download/hielo.zip /var/www/html
+WORKDIR /var/www/html
+EXPOSE 80
+CMD /usr/sbin/httpd -D FOREGROUND
+RUN unzip hielo.zip
+
